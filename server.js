@@ -2,7 +2,6 @@ import { connectDb } from "./db/connect.js";
 import express from "express";
 import cors from 'cors';
 import { userRegistrationControler , userLoginControler } from "./controlers/userControler.js";
-import routers from "./router/routers.js"
 import { activeElection, electionCreatControler, getElectionsControler, getOneElectionControler, voterElectionsControler } from "./controlers/electionControler.js";
 import { addCandidateControler, getCandidateControler } from "./controlers/candidateControler.js";
 import { addVoteControler } from "./controlers/voteControler.js";

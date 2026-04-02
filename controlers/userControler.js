@@ -1,5 +1,8 @@
 import { userModel } from "../model/userModel.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken'
+
+const secretKey = toString(process.env.JWT_secret);
 
 export const userRegistrationControler = async (req, res) => {
     try {
@@ -40,20 +43,15 @@ export const userLoginControler = async (req, res) => {
                 })
         }
 
+        const accessToken = jwt.sign({id: user._id, role: user.role}, secretKey, {expiresIn: '1h'});
         res.status(200)
             .json({
                 success: true,
-                message: "login successful",
-                user: {
-                        id: user._id,
-                        userName: user.userName,
-                        role: user.role
-                    }
+                accessToken
             })
 
     } catch (error) {
         console.log(error);
     }
 }
-
 

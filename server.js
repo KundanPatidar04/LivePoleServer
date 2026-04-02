@@ -5,23 +5,13 @@ import { userRegistrationControler , userLoginControler } from "./controlers/use
 import { activeElection, electionCreatControler, getElectionsControler, getOneElectionControler, voterElectionsControler } from "./controlers/electionControler.js";
 import { addCandidateControler, getCandidateControler } from "./controlers/candidateControler.js";
 import { addVoteControler } from "./controlers/voteControler.js";
+import { verifyUser } from "./meddileware/userAuth.js";
 
 process.loadEnvFile();
 connectDb();
 const app = express();
 
 const Port = process.env.Port || 4000;
-// app.use((req, res, next) => {
-// //   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-// //   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-// //   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-// //   // Handle the preflight (OPTIONS) request
-// //   if (req.method === 'OPTIONS') {
-// //     return res.sendStatus(200);
-// //   }
-// //   next();
-// });
 
 app.set('view engine', 'ejs');
 
@@ -37,6 +27,8 @@ app.get('/', (req, res) => {
 app.post('/registor', userRegistrationControler);    // Add user to Database 
 
 app.post('/login', userLoginControler);    // login user to page
+
+app.use(verifyUser);    // user JWT verification meddilware
 
 app.post('/createElection', electionCreatControler);    // create new election 
 

@@ -13,8 +13,8 @@ export const verifyUser = (req, res, next) => {
 
     jwt.verify(token, secretKey, (err, user)=>{
         if(err) return res.status(403);
-        // req.body = user;
-        // next()
+        req.body = user;
+        next()
     } )
     }
     catch(error){

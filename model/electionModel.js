@@ -14,8 +14,9 @@ const electionSchema = mongoose.Schema({
         type : Date,
     },
     "isActive":{
-        type: Boolean,
-        default: false,
+        type: Number,
+        default: 0,
+        enum: [0, 1, 2],
     },
 })
 

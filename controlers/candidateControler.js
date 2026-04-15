@@ -27,7 +27,7 @@ export const getCandidateControler = async (req, res) => {
         .json({success:true, list:candidates});
     }
     catch (error) {
-        return res.status(200)
-            .json({ success: true, message: error });
+        return res.status(400)
+            .json({ success: false, message: error });
     }
 }

@@ -16,6 +16,13 @@ const Port = process.env.Port || 4000;
 
 app.set('view engine', 'ejs');
 
+const corsOptions = {
+    origin: 'https://livepole.netlify.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+};
+
 app.use(cors());
 app.use(express.json());
 

@@ -3,9 +3,122 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>LivePole Server</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #e8f5e9;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-badge span {
+            color: var(--success);
+            margin-right: 5px;
+        }
+        .status-status{
+            color: var(--success);
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello this is the server home page </h1>
+    <div class="container">
+        <div class="icon">🗄️</div>
+        <h1>Server API - Server Status Page</h1>
+        
+        <div class="status-badge">
+            <span>●</span> SERVICE STATUS: <span class="status-status"> All Systems Operational</span>
+        </div>
+
+        <p>
+            Welcome to the Live Pole! This is an status page for our backend service. 
+            If you're looking for the user interface, please visit the main app below.
+        </p>
+
+        <a href="https://frontend.example.com" class="btn">Visit Frontend App</a>
+
+        <div class="footer-links">
+            <a href="/docs">API Documentation</a>
+            <a href="/health">Health Check</a>
+        </div>
+    </div>
 </body>
 </html>
